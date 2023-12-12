@@ -1,10 +1,15 @@
 <html>
 <head>
-<title>CA337 Film Review Classifier</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>CA337 Film Review Classifier</title>
 </head>
 <body>
-	The classifier prediction is: <br><br>
-	{{ result }}
+    <p>The classifier prediction is: <br><br>
+    {{ result }}</p>
+    <p>LIME Explanation:</p>
+    <ul>
+        {% for feature, weight in result['explanation'] %}
+            <li>{{ feature }}: {{ weight }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
